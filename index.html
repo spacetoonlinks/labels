@@ -118,7 +118,7 @@ button {
     <input type="text" id="char">
     <br><br>
     <button onclick="displayEpisodeNumber()">Add</button><br><br>
-    <textarea id="episodeNumber" rows="9" cols="150" readonly></textarea>
+    <textarea id="episodeNumber" rows="1" cols="150" readonly></textarea><br>
   
     <br>
     <button id="type-tv">TV</button>
@@ -132,7 +132,12 @@ button {
     <button onclick="copytextarea()">Copy</button>
     <button onclick="reset()">Reset</button>
     <div>
-    
+      <br>
+    <button id="tvshow-description">tvshow-desc</button> 
+    <button id="movie1-description">movie-desc</button>
+    <button onclick="copytextarea1()">Copy</button>  
+    <br><br>
+    <textarea id="discription" rows="1" cols="150" readonly></textarea>
     <script>
       function displayEpisodeNumber() {
         var episodeNumber = document.getElementById("episodeNumberInput").value + ',';
@@ -193,6 +198,20 @@ button {
     subTextarea.value += "Sub,";
     });    
     
+    const tvshowBtn = document.getElementById("tvshow-description"); 
+    const tvshowTextarea = document.getElementById("discription");
+    tvshowBtn.addEventListener("click", () => {
+    tvshowTextarea.value += "مشاهدة انمي >#< كامل مدبلج للعربية عبر موقع سبيستون لينكس  الموقع الاول والاقوي لمشاهدة الانمي والكرتون المدبلج";
+    });
+
+    const movieBtn1 = document.getElementById("movie1-description"); 
+    const movieTextarea1 = document.getElementById("discription");
+    movieBtn1.addEventListener("click", () => {
+    movieTextarea1.value +=    "مشاهدة فيلم >#< مدبلج باللّغة العربية عبر موقع سبيستون لينكس  الموقع الاول والاقوي لمشاهدة الانمي والكرتون المدبلج";
+    }); 
+
+    
+
     function copytextarea() {
         // Select the text area
         const textarea = document.getElementById("episodeNumber");
@@ -201,8 +220,18 @@ button {
         // Copy to the clipboard
         document.execCommand("copy");
       }
+
+      function copytextarea1() {
+        // Select the text area
+        const textarea = document.getElementById("discription");
+        textarea.select();
+
+        // Copy to the clipboard
+        document.execCommand("copy");
+      }
           function reset() {
       document.getElementById("episodeNumber").value = "";
+      document.getElementById("discription").value = "";
     }
 
     </script>
